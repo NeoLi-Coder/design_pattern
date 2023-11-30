@@ -1,5 +1,26 @@
 package 创建型.原型模式;
 
+interface Prototype {
+    Prototype clone();
+}
+
+class ConcretePrototype implements Prototype {
+    private int value;
+    
+    public ConcretePrototype(int value) {
+        this.value = value;
+    }
+    
+    @Override
+    public Prototype clone() {
+        return new ConcretePrototype(this.value);
+    }
+    
+    public int getValue() {
+        return this.value;
+    }
+}
+
 public class Client {
     public static void main(String[] args) {
         ConcretePrototype prototype = new ConcretePrototype(10);
